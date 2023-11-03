@@ -2,6 +2,7 @@ package skh.mjc.recyclerviewex01_1103
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.recyclerview.widget.LinearLayoutManager
 import skh.mjc.recyclerviewex01_1103.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
@@ -9,6 +10,11 @@ class MainActivity : AppCompatActivity() {
         val binding by lazy { ActivityMainBinding.inflate(layoutInflater) }
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
+        val data: MutableList<Memo> = loadData()
+        var adapter = customAdapter()
+        adapter.listData = data
+        binding.recyclerView.adapter = adapter
+        binding.recyclerView.layoutManager = LinearLayoutManager(this)
     }
 
     fun loadData(): MutableList<Memo> {
