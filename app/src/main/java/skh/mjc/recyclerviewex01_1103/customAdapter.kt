@@ -2,6 +2,7 @@ package skh.mjc.recyclerviewex01_1103
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import skh.mjc.recyclerviewex01_1103.databinding.ItemRecyclerBinding
 import java.text.SimpleDateFormat
@@ -28,6 +29,12 @@ class customAdapter: RecyclerView.Adapter<Holder>() {
     }
 }
 class Holder(val binding: ItemRecyclerBinding): RecyclerView.ViewHolder(binding.root) {
+    init {
+        binding.root.setOnClickListener {
+            Toast.makeText(binding.root.context, "클릭된 아이템: ${binding.texttitle.text}",
+                Toast.LENGTH_LONG).show()
+        }
+    }
     fun setMemo(memo: Memo) {
         binding.textNo.text = "${memo.no}"
         binding.texttitle.text = memo.title
