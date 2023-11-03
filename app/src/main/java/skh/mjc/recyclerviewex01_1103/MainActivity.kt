@@ -14,7 +14,7 @@ class MainActivity : AppCompatActivity() {
         var adapter = customAdapter()
         adapter.listData = data
         binding.recyclerView.adapter = adapter
-        binding.recyclerView.layoutManager = LinearLayoutManager(this)
+        binding.recyclerView.layoutManager = LinearLayoutManager(this) //여기서 사용하고싶은 레이아웃 선택해서사용
     }
 
     fun loadData(): MutableList<Memo> {
